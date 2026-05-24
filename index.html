@@ -786,6 +786,22 @@
     }
 
     @media (max-width: 520px) {
+      .wrap {
+        padding-left: max(0.85rem, env(safe-area-inset-left));
+        padding-right: max(0.85rem, env(safe-area-inset-right));
+      }
+
+      .card {
+        padding: 1.05rem 0.95rem 1.1rem;
+        margin-bottom: 1rem;
+        border-radius: 16px;
+      }
+
+      .portfolio-genre-title {
+        font-size: clamp(1.68rem, 8.4vw, 2.05rem);
+        letter-spacing: clamp(0.1em, 1.6vw, 0.22em);
+      }
+
       .compare-pair {
         grid-template-columns: 1fr;
       }
@@ -794,6 +810,96 @@
       .card--stem-audio[data-compare-view="demo"] .compare-pair,
       .card--stem-audio[data-compare-view="master"] .compare-pair {
         grid-template-columns: 1fr;
+      }
+
+      .portfolio-player__bar {
+        flex-wrap: wrap;
+        gap: 0.35rem 0.5rem;
+      }
+
+      .portfolio-player__time {
+        min-width: 0;
+        flex: 1 1 100%;
+        text-align: center;
+        font-size: 0.62rem;
+      }
+
+      .compare-fusion {
+        padding: 0.72rem 0.65rem;
+      }
+
+      .compare-fusion__row {
+        gap: 0.42rem;
+      }
+
+      .compare-fusion__end {
+        width: 3.1rem;
+        font-size: 0.52rem;
+        letter-spacing: 0.08em;
+      }
+
+      .compare-fusion__hint {
+        font-size: 0.7rem;
+        padding: 0 0.15rem;
+      }
+
+      .stem-switch__btn {
+        min-height: 44px;
+        padding: 0.42rem 0.72rem;
+        touch-action: manipulation;
+      }
+
+      .compare-fusion__auto {
+        min-height: 44px;
+        padding: 0.5rem 0.85rem;
+        touch-action: manipulation;
+      }
+
+      .genre-playback-bar__row {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .site-footer__social-list {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .site-footer__social-list > li:not(:last-child)::after {
+        display: none;
+      }
+
+      .site-footer__social-link {
+        white-space: normal;
+      }
+
+      .site-footer__revision {
+        width: calc(100% - 1.1rem);
+        padding: 0.42rem 0.55rem 0.46rem;
+      }
+
+      .brand-wordmark {
+        margin-top: clamp(-3.4rem, -17vw, -1.75rem);
+      }
+
+      header .subtitle {
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .portfolio-genre-title {
+        letter-spacing: 0.08em;
+      }
+
+      .compare-fusion__end {
+        width: 2.55rem;
+        font-size: 0.48rem;
+      }
+
+      .stem-switch__btn {
+        padding-inline: 0.58rem;
+        letter-spacing: 0.08em;
       }
     }
 

@@ -1,0 +1,4 @@
+.DS_Store
+demo_sounds/
+*.pyc
+__pycache__/
