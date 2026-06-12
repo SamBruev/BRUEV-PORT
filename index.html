@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Sam Bruev Showcase · Примеры работ</title>
+  <title>Sam Bruev · Mix &amp; Recording</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Pacifico&family=Roboto+Slab:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Roboto+Slab:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* Палитра логотипа: чистый чёрный, крем «бумаги», металлическое золото (#d4af37) — без постоянных «ободков» по UI */
     :root {
@@ -26,7 +26,6 @@
       --accent-soft: rgba(232, 201, 104, 0.92);
       --surface: #050505;
       --surface-ink: #000000;
-      --script-font: "Pacifico", cursive;
       --brand-serif: "Roboto Slab", Georgia, "Times New Roman", serif;
       /* Display для жанров: Oswald 700 — явно жирнее одношрифтового Bebas; Bebas вторым fallback */
       --genre-display-font: "Oswald", "Bebas Neue", "Arial Narrow", system-ui,
@@ -151,7 +150,7 @@
       z-index: 1;
       max-width: 720px;
       margin: 0 auto;
-      padding: calc(1.1rem + env(safe-area-inset-top, 0px)) clamp(1.1rem, 4.2vw, 2rem)
+      padding: calc(0.35rem + env(safe-area-inset-top, 0px)) clamp(1.1rem, 4.2vw, 2rem)
         calc(3rem + var(--portfolio-revision-dock-h) + env(safe-area-inset-bottom, 0px));
     }
 
@@ -172,9 +171,257 @@
       text-align: center;
     }
 
-    header.brand-mark h1 {
+    header.brand-mark h1,
+    .section-head h1 {
       text-align: center;
       width: 100%;
+    }
+
+    /* Hero — бренд + факты без простыни текста */
+    .site-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: clamp(0.35rem, 1.5vw, 0.75rem);
+    }
+
+    .site-hero .brand-stack {
+      margin-top: clamp(-0.35rem, -1.2vw, 0);
+      transform: translateY(clamp(-1.1rem, -4.5vw, -0.45rem));
+    }
+
+    .site-hero__role {
+      margin: clamp(0.15rem, 1vw, 0.45rem) 0 0.85rem;
+      font-family: var(--genre-display-font);
+      font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(232, 201, 104, 0.78);
+    }
+
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem 0.55rem;
+      margin: 0 0 0.45rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stat-row:last-of-type {
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-strip {
+      margin: 0 0 0.45rem;
+      max-width: 22rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      line-height: 1.45;
+      text-align: center;
+      color: rgba(232, 201, 104, 0.82);
+    }
+
+    .hero-strip--studios {
+      max-width: 28rem;
+    }
+
+    /* Тихий указатель к примерам работ вместо «бейджика» Demo→Master */
+    .hero-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin: 0.2rem 0 0.1rem;
+      font-family: var(--genre-display-font);
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(232, 201, 104, 0.78);
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: color 0.18s ease;
+    }
+
+    .hero-cue:hover {
+      color: var(--cream);
+    }
+
+    .hero-cue:focus-visible {
+      outline: 2px solid rgba(232, 201, 104, 0.7);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .hero-cue__chev {
+      width: 14px;
+      height: 14px;
+      display: block;
+      animation: hero-cue-bob 2.4s ease-in-out infinite;
+    }
+
+    @keyframes hero-cue-bob {
+      0%, 100% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(2px); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-cue__chev { animation: none; opacity: 0.85; }
+    }
+
+    .hero-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0.45rem;
+    }
+
+    .hero-group__label {
+      margin: 0 0 0.32rem;
+      font-family: var(--genre-display-font);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(143, 120, 112, 0.95);
+    }
+
+    .stat-chip--degree {
+      min-width: 7.8rem;
+      max-width: 10.5rem;
+      padding-left: 0.62rem;
+      padding-right: 0.62rem;
+    }
+
+    .stat-chip--degree .stat-chip__lbl {
+      max-width: 9.5rem;
+      font-size: 0.56rem;
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+
+    .stat-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 4.6rem;
+      padding: 0.42rem 0.72rem 0.38rem;
+      border-radius: 10px;
+      background: rgba(212, 175, 55, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.16);
+    }
+
+    .stat-chip__val {
+      font-family: var(--genre-display-font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .stat-chip__lbl {
+      margin-top: 0.12rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-head {
+      margin-bottom: clamp(1.1rem, 3.2vw, 1.65rem);
+    }
+
+    .section-head__hint {
+      margin: 0.35rem 0 0;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .card--compact {
+      padding: 1.05rem 1.15rem 1.1rem;
+      margin-bottom: 0.95rem;
+      box-shadow:
+        inset 0 0 0 1px rgba(212, 175, 55, 0.09),
+        0 10px 30px rgba(0, 0, 0, 0.42);
+    }
+
+    .card--compact h2 {
+      margin-bottom: 0.65rem;
+    }
+
+    .credentials-line {
+      margin: 0 0 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1.45;
+      color: rgba(232, 201, 104, 0.82);
+    }
+
+    .lede {
+      margin: 0;
+      font-size: 0.8375rem;
+      line-height: 1.5;
+      color: rgba(243, 236, 224, 0.92);
+    }
+
+    .work-list--price li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 0.65rem;
+    }
+
+    .work-list--price li strong {
+      flex: 1 1 6.5rem;
+      min-width: 0;
+      font-weight: inherit;
+    }
+
+    .work-list--price li span {
+      flex: 0 1 auto;
+      margin-left: auto;
+      text-align: right;
+      color: rgba(235, 227, 214, 0.88);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media (max-width: 380px) {
+      .work-list--price li span {
+        flex-basis: 100%;
+        margin-left: calc(7px + 0.65rem);
+        text-align: left;
+      }
+    }
+
+    .work-list--cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 0.75rem;
+    }
+
+    @media (max-width: 420px) {
+      .work-list--cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .briefing-list--tight li {
+      margin-bottom: 0.42rem;
+    }
+
+    .briefing-list--tight li:last-child {
+      margin-bottom: 0;
     }
 
     /* Символ лампы — крупнее, центр блока без смещения */
@@ -184,7 +431,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto clamp(-0.72rem, -2.85vw, 0.06rem);
+      margin: clamp(-0.35rem, -1.5vw, 0) auto clamp(-0.85rem, -3.2vw, -0.15rem);
       max-width: min(168px, 44vw);
       isolation: isolate;
     }
@@ -228,18 +475,11 @@
       top: 0;
       z-index: 0;
       width: min(640px, 110vw);
-      height: clamp(300px, 78vw, 480px);
+      height: clamp(220px, 56vw, 340px);
       transform: translateX(-50%);
       pointer-events: none;
       border-radius: 0;
       background:
-        radial-gradient(
-          ellipse min(760px, 190vw) 58% at 50% -2%,
-          rgba(253, 244, 210, 0.14) 0%,
-          rgba(219, 186, 80, 0.085) 20%,
-          rgba(212, 175, 55, 0.042) 42%,
-          transparent 74%
-        ),
         radial-gradient(
           ellipse min(920px, 240vw) 95% at 50% 8%,
           rgba(212, 175, 55, 0.055) 0%,
@@ -251,14 +491,18 @@
       opacity: 0.82;
       -webkit-mask-image: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.55) 12%,
+        rgba(0, 0, 0, 1) 28%,
         rgba(0, 0, 0, 0.94) 38%,
         rgba(0, 0, 0, 0.45) 72%,
         rgba(0, 0, 0, 0) 100%
       );
       mask-image: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.55) 12%,
+        rgba(0, 0, 0, 1) 28%,
         rgba(0, 0, 0, 0.94) 38%,
         rgba(0, 0, 0, 0.45) 72%,
         rgba(0, 0, 0, 0) 100%
@@ -278,9 +522,9 @@
       width: 100%;
       max-width: none;
       margin:
-        clamp(-5rem, -23vw, -2.5rem)
+        clamp(-5.6rem, -26vw, -3rem)
         0
-        clamp(0.1rem, 0.85vw, 0.42rem);
+        clamp(0.05rem, 0.5vw, 0.28rem);
       padding: 0;
       box-sizing: border-box;
       isolation: isolate;
@@ -308,17 +552,45 @@
         drop-shadow(0 10px 30px rgba(0, 0, 0, 0.84));
     }
 
-    header h1 {
-      font-family: var(--script-font);
-      font-weight: 400;
-      font-size: clamp(2rem, 6.8vw, 2.75rem);
+    header h1,
+    .section-head h1 {
+      font-family: var(--genre-display-font);
+      font-weight: 700;
+      font-size: clamp(1.65rem, 5.2vw, 2.15rem);
       margin: 0;
-      letter-spacing: 0.02em;
-      color: var(--accent-soft);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cream);
       text-shadow:
-        0 0 48px rgba(212, 175, 55, 0.32),
-        0 0 88px rgba(212, 175, 55, 0.14),
+        0 0 32px rgba(212, 175, 55, 0.22),
         0 2px 2px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Единый мотив «студийной черты» под заголовками — ритм и одна система с жанрами */
+    .section-head h1::after {
+      content: "";
+      display: block;
+      width: clamp(2.2rem, 8vw, 3rem);
+      height: 2px;
+      margin: 0.7rem auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.85), transparent);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+    }
+
+    .card--compact > h2 {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .card--compact > h2::after {
+      content: "";
+      display: block;
+      width: 1.9rem;
+      height: 2px;
+      margin: 0.5rem auto 0.15rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), transparent);
     }
 
     header .subtitle {
@@ -356,10 +628,7 @@
     }
 
     .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.85rem;
+      display: none;
     }
 
     .tag {
@@ -1252,32 +1521,8 @@
       margin-top: 0.35rem;
     }
 
-    @keyframes genre-title-neon-pink {
-      0%,
-      100% {
-        color: rgba(255, 90, 200, 1);
-        text-shadow:
-          0 2px 1px rgba(0, 0, 0, 1),
-          0 4px 0 rgba(0, 0, 0, 0.82),
-          0 0 36px rgba(255, 0, 165, 1),
-          0 0 72px rgba(255, 0, 145, 0.92),
-          0 0 120px rgba(255, 60, 200, 0.62),
-          0 18px 42px rgba(0, 0, 0, 0.78);
-      }
-
-      50% {
-        color: rgba(255, 245, 255, 1);
-        text-shadow:
-          0 2px 1px rgba(0, 0, 0, 1),
-          0 4px 0 rgba(0, 0, 0, 0.82),
-          0 0 54px rgba(255, 80, 230, 1),
-          0 0 102px rgba(255, 20, 180, 0.96),
-          0 0 152px rgba(255, 140, 255, 0.72),
-          0 22px 48px rgba(0, 0, 0, 0.82);
-      }
-    }
-
     .portfolio-genre-title {
+      position: relative;
       margin: 0 auto;
       width: 100%;
       max-width: min(720px, 100%);
@@ -1288,21 +1533,29 @@
       text-transform: uppercase;
       text-align: center;
       line-height: 1.03;
-      will-change: color, text-shadow;
-      animation: genre-title-neon-pink 2.85s ease-in-out infinite;
+      color: var(--cream);
+      text-shadow:
+        0 1px 0 rgba(0, 0, 0, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.7),
+        0 0 34px rgba(212, 175, 55, 0.24),
+        0 0 72px rgba(212, 175, 55, 0.1);
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .portfolio-genre-title {
-        animation: none;
-        color: rgba(255, 150, 240, 0.99);
-        text-shadow:
-          0 2px 1px rgba(0, 0, 0, 1),
-          0 4px 0 rgba(0, 0, 0, 0.82),
-          0 0 42px rgba(255, 0, 180, 0.97),
-          0 0 84px rgba(255, 40, 200, 0.68),
-          0 0 120px rgba(255, 140, 255, 0.38);
-      }
+    /* Тонкая золотая черта под названием жанра — ритм и «студийная» дисциплина */
+    .portfolio-genre-title::after {
+      content: "";
+      display: block;
+      width: clamp(2.4rem, 9vw, 3.4rem);
+      height: 2px;
+      margin: 0.62rem auto 0;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(212, 175, 55, 0.85),
+        transparent
+      );
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
     }
 
     .portfolio-genre > .note:last-child {
@@ -1616,12 +1869,15 @@
     }
 
     .site-footer__sam {
-      font-family: var(--script-font);
-      font-size: clamp(1.05rem, 3.8vw, 1.35rem);
-      color: var(--accent-soft);
+      font-family: var(--genre-display-font);
+      font-size: clamp(1.35rem, 5vw, 1.78rem);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
       text-shadow:
-        0 2px 26px rgba(212, 175, 55, 0.36),
-        0 0 56px rgba(212, 175, 55, 0.2);
+        0 0 30px rgba(212, 175, 55, 0.3),
+        0 2px 4px rgba(0, 0, 0, 0.6);
       display: block;
     }
 
@@ -1851,22 +2107,33 @@
   </div>
 
   <div class="wrap">
-    <div class="brand-stack">
-      <div class="brand-symbol">
-        <img src="portfolio-logo-symbol.png" alt="Sam Bruev Mix &amp; Recording — символ студии" width="833" height="1016" decoding="async" fetchpriority="high">
+    <header class="site-hero" aria-label="Sam Bruev — Mix and Recording">
+      <div class="brand-stack">
+        <div class="brand-symbol">
+          <img src="portfolio-logo-symbol.png" alt="Sam Bruev Mix &amp; Recording — символ студии" width="833" height="1016" decoding="async" fetchpriority="high">
+        </div>
+        <div class="brand-wordmark">
+          <img src="portfolio-logo-descript.png" alt="Sam Bruev — Mix &amp; Recording, музыкальный продакшн" width="3000" height="2178" decoding="async" fetchpriority="high">
+        </div>
       </div>
-
-      <div class="brand-wordmark">
-        <img src="portfolio-logo-descript.png" alt="Sam Bruev — Mix &amp; Recording, музыкальный продакшн" width="3000" height="2178" decoding="async" fetchpriority="high">
-      </div>
-    </div>
+      <p class="site-hero__role">Mix · Recording · Production</p>
+      <ul class="stat-row" aria-label="Опыт и образование">
+        <li class="stat-chip"><span class="stat-chip__val">21+</span><span class="stat-chip__lbl">лет в музыке</span></li>
+        <li class="stat-chip stat-chip--degree"><span class="stat-chip__val">ИСИ</span><span class="stat-chip__lbl">муз. звукорежиссура · 2018</span></li>
+        <li class="stat-chip stat-chip--degree"><span class="stat-chip__val">Berklee</span><span class="stat-chip__lbl">College of Music · online</span></li>
+      </ul>
+      <p class="hero-strip hero-strip--studios">Sam Bruev Studio · Мосфильм · Vintage Record · Cinelab · Matvienko</p>
+      <a class="hero-cue" href="#listen" aria-label="Перейти к примерам работ">
+        <span>Demo → Master · слушать</span>
+        <svg class="hero-cue__chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 15.5l-6-6 1.4-1.4 4.6 4.6 4.6-4.6L18 9.5z"/></svg>
+      </a>
+    </header>
 
     <article class="card card--greeting" aria-label="Вступление">
       <div class="media-shell">
         <div class="portfolio-player portfolio-player--video portfolio-player--greeting" data-player>
           <video playsinline preload="metadata">
             <source src="portfolio-video/obraschenie.mp4" type="video/mp4">
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
             В этом браузере ролик не воспроизводится.
           </video>
           <div class="portfolio-player__overlay-stack">
@@ -1879,142 +2146,14 @@
           </div>
         </div>
       </div>
-      <p class="note">Подмените файл <code>portfolio-video/obraschenie.mp4</code> на свой материал; второй источник в коде — только запасной пример до загрузки.</p>
     </article>
 
-    <header class="brand-mark">
-      <div>
-        <h1>Примеры работ</h1>
-        <p class="subtitle">Жанровые блоки — <strong>METAL</strong>, <strong>ROCK</strong>, <strong>POP</strong> и <strong>PUNK</strong>. Режим «Stems» — два плеера; под ними ползунок <strong>плавной смеси</strong> demo&nbsp;→&nbsp;master при одном времени воспроизведения или кнопка авто-перетекания. Клавиши <strong>Demo / Master</strong> режут до одной дорожки без смеси. В каждом жанре <strong>Drums · Vocals · Guitars</strong> меняют одну активную дорожку <strong>на месте</strong>, без переезда страницы; дальше можно спокойно листать к следующим разделам.</p>
-      </div>
+    <header class="brand-mark section-head" id="listen">
+      <h1>послушать мои работы</h1>
+      <p class="section-head__hint">Stems · Demo / Master · 4 жанра</p>
     </header>
 
-    <article class="card card--about">
-      <div class="tag-row">
-        <span class="tag">Обо мне</span>
-        <span class="tag">Образование</span>
-        <span class="tag">Опыт</span>
-      </div>
-      <h2>Семён Бруев</h2>
-      <p class="meta">Звук, сведение и продакшн — одна линия, по которой иду с подросткового возраста.</p>
-      <div class="about-body">
-        <p>Меня зовут <strong>Семён Бруев</strong>. <strong>Родился в 1989 году.</strong> Высшее образование по музыкальной режиссуре получил в Москве, в <strong>ИСИ</strong>, в <strong>2018 году</strong>. Образование имеет значение, когда были сильные педагоги — у меня таких три: <strong>Софья Николаевна Кругликова</strong>, <strong>Мария Александровна Соболева</strong>, <strong>Андрей Александрович Левин</strong>.</p>
-        <p>С <strong>14 лет</strong> занимаюсь музыкой: это главное профессиональное дело в моей жизни — люблю работу, музыку и людей.</p>
-        <p>После института учился в онлайн-программе <strong>Berklee College of Music</strong>, проходил практику в <strong>Европе</strong>. Работал на студиях звукозаписи, в том числе на <strong>Мосфильме</strong>, в <strong>Vintage Record</strong>, <strong>Cinelab</strong>, в студии <strong>Игоря Матвиенко</strong> и на других площадках.</p>
-        <p>В каждой работе подробно расписываю, что конкретно делал — при выборе специалиста это действительно важно.</p>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="tag-row">
-        <span class="tag">Компетенции</span>
-        <span class="tag">Скоуп работ</span>
-      </div>
-      <h2>Выполненные работы</h2>
-      <p class="meta">Чек-лист направлений, с которыми работаю: от записи партий до мастеринга.</p>
-      <div class="work-list-shell media-shell">
-        <ul class="work-list">
-          <li>Сведение</li>
-          <li>Запись гитары</li>
-          <li>Запись Bus гитары</li>
-          <li>Запись вокала</li>
-          <li>Продакшн вокала</li>
-          <li>Продакшн гитары</li>
-          <li>Продакшн барабанов</li>
-          <li>Продакшн FX</li>
-          <li>Мастеринг · Mastery Inc</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="card" id="uslugi">
-      <div class="tag-row">
-        <span class="tag">Услуги</span>
-        <span class="tag">Прайс</span>
-      </div>
-      <h2>Услуги</h2>
-      <p class="meta">Ориентиры по ценам; финальные условия закрепляем до начала работ.</p>
-      <div class="work-list-shell media-shell">
-        <ul class="work-list">
-          <li><strong>Консультация</strong> — 15&nbsp;000&nbsp;₽ · <time datetime="06:00">06:00</time></li>
-          <li><strong>Продакшн</strong> — по&nbsp;договорённости</li>
-          <li><strong>Запись</strong> — 3&nbsp;000&nbsp;₽ за&nbsp;час</li>
-          <li><strong>Сведение</strong> (мастер сведения) — 25&nbsp;000&nbsp;₽</li>
-          <li><strong>Мастеринг</strong> — 5&nbsp;000&nbsp;₽</li>
-          <li><strong>Выступление</strong> — 15&nbsp;000&nbsp;₽ плюс оплата перелёта и проживания</li>
-        </ul>
-      </div>
-      <p class="note">Уточните в переписке объём материала, сроки и формат — при необходимости скорректируем смету. Контакты в&nbsp;конце страницы.</p>
-    </article>
-
-    <article class="card card--collab">
-      <div class="tag-row">
-        <span class="tag">Особенности</span>
-        <span class="tag">Сведение</span>
-        <span class="tag">Ожидания</span>
-      </div>
-      <h2>Особенности работы со мной</h2>
-      <p class="meta">Что именно делает финальное сведение — и что лучше закрыть раньше.</p>
-      <p class="briefing-lead">Сведение — последний этап музыкального производства: оно аккуратно собирает и подчёркивает уже готовый материал, но не заменяет предыдущие шаги.</p>
-      <ul class="briefing-list">
-        <li>не исправляет ошибки на этапе написания песни и смыслового наполнения;</li>
-        <li>не устраняет ошибки аранжировки;</li>
-        <li>не компенсирует слабую или халтурную запись — «поставить галочку» на плохом сырье сведением нельзя.</li>
-      </ul>
-      <p class="collab-emphasis">Поверьте мне: я занимаюсь этим достаточно давно, чтобы с уверенностью сказать вам — если демо не качает, на сведении у самого дорогого специалиста ничего не изменится. Если вам не нравится материал на этапе демо, напишите мне — и мы постараемся взять лучшее из вашей музыкальной идеи и подчеркнуть это до сведения.</p>
-      <p class="collab-emphasis">Обратите внимание: осознанно сыгранные дубли, характерные для звучания (как у Nirvana — почти ни одной партии точь-в-точь), не то же самое, что неровная игра на гитаре человеком, который ещё не владеет инструментом.</p>
-      <p class="collab-warm">Здорово, что вы здесь, в этом небольшом приложении: в мои услуги входят помощь с аранжировкой, продюсирование и продакшн каждого инструмента — задачи до сведения мы можем проработать заранее.</p>
-    </article>
-
-    <article class="card">
-      <div class="tag-row">
-        <span class="tag">Выступления</span>
-        <span class="tag">Мероприятия</span>
-        <span class="tag">Обучение</span>
-      </div>
-      <h2>Сцена, лекции и мастер-классы</h2>
-      <p class="meta">Готов приехать на музыкальное событие — с живым рассказом, лекцией или практической частью для музыкантов.</p>
-      <div class="about-body">
-        <p>Мне нравится выступать перед <strong>большой аудиторией</strong>: держать внимание зала и рассказывать так, чтобы было и по делу, и интересно слушать.</p>
-        <p>Подберу формат под вашу площадку и задачу: есть <strong>готовые презентации</strong>, наблюдения из студийной практики и добрый запас <strong>смешных и показательных историй</strong> — не «сухая лекция ради галочки».</p>
-        <p>С удовольствием выступлю на вашем <strong>музыкальном мероприятии</strong>, фестивале или встрече сообщества и проведу <strong>мастер-класс</strong> или <strong>лекцию для музыкантов</strong> — про запись, сведение, продакшн и смежные темы можно договориться заранее.</p>
-      </div>
-      <p class="note">Формат, продолжительность и содержание — обсуждаем до анонса; контакты внизу страницы.</p>
-    </article>
-
-    <article class="card" id="soc-free">
-      <div class="tag-row">
-        <span class="tag">Соцсети</span>
-        <span class="tag">Видео</span>
-        <span class="tag">Бесплатно</span>
-      </div>
-      <h2>Смотрите мои соцсети</h2>
-      <p class="meta">Там есть бесплатные видео — чтобы музыканты могли расти вместе со мной и ко входу в студию приходили уже вооружённые.</p>
-      <div class="about-body">
-        <p>Советую <strong>подписаться и следить за обновлениями</strong>: в соцсетях я выкладываю <strong>бесплатный контент для музыкантов</strong> — про подготовку к записи, практический продакшн и то, на что действительно стоит обратить внимание до сессии.</p>
-        <p>Вы можете параллельно с моими роликами <strong>подтягивать навыки и материалы</strong> так, чтобы к моменту, когда решите написать мне, уже был фундамент — и наш разговор и работа начались с более осмысленной точки, а не с нуля.</p>
-      </div>
-      <p class="note">Профили и почта — в блоке под подписью внизу страницы.</p>
-    </article>
-
-    <article class="card" id="dokumenty">
-      <div class="tag-row">
-        <span class="tag">Документы</span>
-        <span class="tag">PDF</span>
-      </div>
-      <h2>Документы</h2>
-      <p class="meta">Официальные материалы и реквизиты для юрлиц — открыть или скачать в браузере.</p>
-      <div class="work-list-shell media-shell">
-        <ul class="work-list doc-list">
-          <li><a href="portfolio-docs/oferta.pdf" target="_blank" rel="noopener">Публичная оферта (PDF)</a></li>
-          <li><a href="portfolio-docs/politika-pd.pdf" target="_blank" rel="noopener">Политика обработки персональных данных (PDF)</a></li>
-          <li><a href="portfolio-docs/rekvizity.pdf" target="_blank" rel="noopener">Реквизиты для договора (PDF)</a></li>
-        </ul>
-      </div>
-      <p class="note">Положите файлы с этими именами в папку <code>portfolio-docs/</code> рядом с этой страницей или измените адреса в разметке.</p>
-    </article>
-
-    <section class="portfolio-genre portfolio-genre--metal" data-genre="metal" data-active-stem="drums" aria-labelledby="genre-metal">
+<section class="portfolio-genre portfolio-genre--metal" data-genre="metal" data-active-stem="drums" aria-labelledby="genre-metal">
       <header class="portfolio-genre-banner">
         <h2 class="portfolio-genre-title" id="genre-metal">METAL</h2>
       </header>
@@ -2040,7 +2179,6 @@
       <div class="genre-stem-deck">
       <article id="metal-drums" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="drums">
         <h3>Drums</h3>
-        <p class="meta">Черновая лента и финал после компрессии и эквалайзера под плотный микс.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2059,7 +2197,6 @@
 
       <article id="metal-vocals" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="vocals">
         <h3>Vocals</h3>
-        <p class="meta">Сырой крик / чистый вокал: шумы, объём и агрессия в финале.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2078,7 +2215,6 @@
 
       <article id="metal-guitars" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="guitars">
         <h3>Guitars</h3>
-        <p class="meta">Удвоенные партии и пан: плотность, срезы и средние без каши.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2123,7 +2259,6 @@
       <div class="genre-stem-deck">
       <article id="rock-drums" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="drums">
         <h3>Drums</h3>
-        <p class="meta">Живость и кач: баланс панорамы и ограничения по дайнамике под рок.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2142,7 +2277,6 @@
 
       <article id="rock-vocals" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="vocals">
         <h3>Vocals</h3>
-        <p class="meta">Телесность и текст: выравнивание дикции и место в миксе.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2161,7 +2295,6 @@
 
       <article id="rock-guitars" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="guitars">
         <h3>Guitars</h3>
-        <p class="meta">Ритм и соло-слои: ширина сцены без потери середины.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2206,7 +2339,6 @@
       <div class="genre-stem-deck">
       <article id="pop-drums" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="drums">
         <h3>Drums</h3>
-        <p class="meta">Строгая посадка в сетке, «воздух» и упругость удара.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2225,7 +2357,6 @@
 
       <article id="pop-vocals" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="vocals">
         <h3>Vocals</h3>
-        <p class="meta">Шейпы, даблы и аккуратное «переднее» звучание поп-группы.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2244,7 +2375,6 @@
 
       <article id="pop-guitars" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="guitars">
         <h3>Guitars</h3>
-        <p class="meta">Структурные падики и филь: ясность партий на радиофоне.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2289,7 +2419,6 @@
       <div class="genre-stem-deck">
       <article id="punk-drums" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="drums">
         <h3>Drums</h3>
-        <p class="meta">Ломаный темп и сырая энергия: быстро довести до читаемой «стены» звука.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2308,7 +2437,6 @@
 
       <article id="punk-vocals" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="vocals">
         <h3>Vocals</h3>
-        <p class="meta">Приближенный захват: шипение, дыхание и драйв без лишней грязи.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2327,7 +2455,6 @@
 
       <article id="punk-guitars" class="card card--stem-audio card--genre-anchor" data-compare-view="both" data-stem="guitars">
         <h3>Guitars</h3>
-        <p class="meta">Царапающие риффы на одну ширину: грязно, но пробивает микс.</p>
         <div class="compare-pair">
           <div class="compare-col compare-col--demo media-shell">
             <span class="compare-label compare-label--demo">Demo</span>
@@ -2344,21 +2471,74 @@
         </div>
       </article>
       </div>
-
-      <p class="note">Сейчас в плеерах заглушки (.m4a). Подложите дорожки в <code>portfolio-audio/</code> под именами <code>[metal|rock|pop|punk]-[drums|vocals|guitars]-[demo|master].m4a</code> или поменяйте пути.</p>
     </section>
 
-    <article class="card">
-      <div class="tag-row">
-        <span class="tag">Видео</span>
-        <span class="tag">Референс</span>
+    <article class="card card--compact" id="uslugi">
+      <h2>Услуги</h2>
+      <div class="work-list-shell media-shell">
+        <ul class="work-list work-list--price">
+          <li><strong>Консультация</strong><span>15&nbsp;000&nbsp;₽ · <time datetime="PT6H">6&nbsp;ч</time></span></li>
+          <li><strong>Продакшн</strong><span>по договорённости</span></li>
+          <li><strong>Запись</strong><span>3&nbsp;000&nbsp;₽ / ч</span></li>
+          <li><strong>Сведение</strong><span>25&nbsp;000&nbsp;₽</span></li>
+          <li><strong>Мастеринг</strong><span>5&nbsp;000&nbsp;₽</span></li>
+          <li><strong>Выступление</strong><span>15&nbsp;000&nbsp;₽ + перелёт и проживание</span></li>
+        </ul>
+        <ul class="work-list work-list--cols work-list--continued" id="about" aria-label="Направления работы">
+          <li>Сведение</li>
+          <li>Запись вокала</li>
+          <li>Запись гитары</li>
+          <li>Bus гитары</li>
+          <li>Продакшн вокала</li>
+          <li>Продакшн гитары</li>
+          <li>Продакшн барабанов</li>
+          <li>Продакшн FX</li>
+          <li>Мастеринг</li>
+        </ul>
       </div>
-      <h2>Дополнительное видео</h2>
-      <p class="meta">Сюда можно вложить второй материал: клип, бэкстейдж или запись сессии.</p>
+    </article>
+
+    <article class="card card--compact card--collab">
+      <h2>Что делает сведение</h2>
+      <ul class="briefing-list briefing-list--tight">
+        <li>собирает и подчёркивает готовый материал — не переписывает песню;</li>
+        <li>не чинит слабую аранжировку и плохую запись;</li>
+        <li>если демо не качает — напишите до микса, разберём продакшн.</li>
+      </ul>
+    </article>
+
+    <article class="card card--compact card--briefing">
+      <h2>Перед отправкой</h2>
+      <ul class="briefing-list briefing-list--tight">
+        <li><strong>48&nbsp;kHz · 24&nbsp;bit</strong> минимум;</li>
+        <li>понятные имена файлов (<code>vox_lead_01.wav</code>, не Track&nbsp;01);</li>
+        <li>созвон до старта — обязателен.</li>
+      </ul>
+      <p class="briefing-fee">Разбор чужих файлов без именования — <strong>+3000&nbsp;₽</strong> (~1&nbsp;ч).</p>
+    </article>
+
+    <article class="card card--compact">
+      <h2>Лекции и сцена</h2>
+      <p class="lede">Мастер-классы и лекции для музыкантов — запись, сведение, продакшн. Формат под вашу площадку.</p>
+    </article>
+
+    <article class="card card--compact" id="dokumenty">
+      <h2>Документы</h2>
+      <div class="work-list-shell media-shell">
+        <ul class="work-list doc-list">
+          <li><a href="portfolio-docs/oferta.pdf" target="_blank" rel="noopener">Оферта (PDF)</a></li>
+          <li><a href="portfolio-docs/politika-pd.pdf" target="_blank" rel="noopener">Политика ПДн (PDF)</a></li>
+          <li><a href="portfolio-docs/rekvizity.pdf" target="_blank" rel="noopener">Реквизиты (PDF)</a></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="card card--compact card--video-extra">
+      <h2>Видео</h2>
       <div class="media-shell">
         <div class="portfolio-player portfolio-player--video" data-player>
           <video playsinline preload="metadata">
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+            <source src="portfolio-video/dopolnitelnoe.mp4" type="video/mp4">
             В этом браузере ролик не воспроизводится.
           </video>
           <div class="portfolio-player__overlay-stack">
@@ -2371,24 +2551,11 @@
           </div>
         </div>
       </div>
-      <p class="note">Свой ролик: <code>&lt;source src=&quot;moj-rolik.mp4&quot; type=&quot;video/mp4&quot;&gt;</code>. Дублируйте блоки <code>.card</code> для новых работ.</p>
     </article>
 
-    <article class="card card--briefing">
-      <div class="tag-row">
-        <span class="tag">Сведение</span>
-        <span class="tag">Подготовка файлов</span>
-      </div>
-      <h2>Перед отправкой на сведение</h2>
-      <p class="meta">Обязательно для старта по срокам.</p>
-      <p class="briefing-lead">Пожалуйста, прежде чем отправить мне работу на сведение, проверьте, что выполнены все пункты:</p>
-      <ul class="briefing-list">
-        <li>частота дискретизации и битность — <strong>не ниже 48&nbsp;кГц и 24&nbsp;bit</strong>;</li>
-        <li>названия аудиофайлов — <strong>однозначные и короткие</strong>, в одном стиле: видно инструмент, роль дорожки, тейк или версию; при желании можно ориентироваться на шаблон вроде <code>guit_rhythm_take3-DI.wav</code>, <code>vox_dbl_02.wav</code> — важнее не буква в букву паттерну, чем чтобы по имени было ясно, что внутри, без безликих «Track&nbsp;01»;</li>
-        <li>перед работой мы обязательно с вами созвонимся и&nbsp;обсудим все детали;</li>
-      </ul>
-      <p class="briefing-consequence">В противном случае я не смогу приступить к своей работе вовремя.</p>
-      <p class="briefing-fee">Если у вас нет возможности сделать эту работу самостоятельно, возможна добавочная стоимость <strong>3000&nbsp;₽</strong>: это примерно час, чтобы разобраться, какой аудиофайл за что отвечает.</p>
+    <article class="card card--compact" id="soc-free">
+      <h2>Соцсети</h2>
+      <p class="lede">Бесплатные материалы для музыкантов — <strong>@sam_bruev</strong>. Профили и почта внизу.</p>
     </article>
 
     <footer>
@@ -2439,7 +2606,7 @@
           rel="me">sambruev@gmail.com</a>
       </p>
       <div class="site-footer__revision" role="note">
-        <span class="site-footer__revision-line">приложение <strong>Sam Bruev Showcase</strong>&nbsp;<span class="site-footer__rev-ver" title="Перед деплоем измените версию здесь в HTML">v1.3.0</span></span>
+        <span class="site-footer__revision-line">Sam Bruev Showcase&nbsp;<span class="site-footer__rev-ver" title="Версия страницы">v1.4.0</span></span>
         <span class="site-footer__revision-div" aria-hidden="true">/</span>
         <span class="site-footer__revision-line">метка времени документа <time id="portfolio-html-stamp" title="По возможности браузера: время последнего изменения этого HTML (Last-Modified), в вашей локальной зоне"></time></span>
       </div>
@@ -2699,7 +2866,7 @@
         var box = document.createElement("div");
         box.className = "compare-fusion";
         box.innerHTML =
-          '<p class="compare-fusion__hint"><strong>Demo</strong> on the left, <strong>master</strong> on the right — same timeline. Drag the slider to blend (mobile Safari sometimes routes volume at the OS level; blend is clearest on desktop).</p>' +
+          '<p class="compare-fusion__hint">Demo слева · master справа · ползунок — смесь</p>' +
           '<div class="compare-fusion__row">' +
           '<span class="compare-fusion__end compare-fusion__end--demo">Demo</span>' +
           '<label class="compare-fusion__mix-label">' +
